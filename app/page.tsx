@@ -1,11 +1,10 @@
-import ModeToggle from "@/components/ModeToggle"
-import { Button } from "@/components/ui/button"
+import ModeToggle from "@/components/ModeToggle";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
-    <main>
-      <ModeToggle />
-      <Button>Press me</Button>
+    <main className="relative min-h-screen w-screen">
+      <Navbar />
     </main>
   )
 }

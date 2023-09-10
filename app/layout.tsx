@@ -8,7 +8,7 @@ export default function RootLayout({ children }: {
     <>
       <html lang="en" suppressHydrationWarning>
         <head />
-        <body>
+        <body className="overflow-x-hidden">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {children}
           </ThemeProvider>
