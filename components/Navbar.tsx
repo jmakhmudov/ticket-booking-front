@@ -29,7 +29,7 @@ const Navbar = () => {
                 </Button>
             </section>
 
-            <section className={`right-[${menuPosition}] bottom-0 top-0 absolute w-96 bg-background border-l-[1px] p-5 transition-all duration-300`}>
+            <section className={`right-[${menuPosition}] bottom-0 top-0 absolute w-96 bg-background border-l-[1px] p-5 transition-all duration-700`}>
                 <Button onClick={closeMenu} variant={"outline"} className="px-2 py-4">
                     <Cross1Icon className="w-5 h-6" />
                 </Button>
