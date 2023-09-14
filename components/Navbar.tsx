@@ -27,13 +27,13 @@ const Navbar = () => {
                 </Button>
             </section>
 
-            <section className={`${menu ? "right-0" : "right-[-100vw]"} bottom-0 top-0 absolute w-72 bg-background border-l-[1px] p-5 transition-all duration-700`}>
+            <section className={`${menu ? "right-0" : "right-[-100vw]"} bottom-0 top-0 absolute w-72 bg-background border-l-[1px] p-5 transition-all duration-700 z-50`}>
                 <Button onClick={handleClick} variant={"outline"} className="px-2 py-4">
                     <Cross1Icon className="w-5 h-6" />
                 </Button>
 
-                <div className="flex flex-col">
-                    <Link href="/about">About</Link>
+                <div className="flex flex-col m-10 font-bold space-y-2 text-xl">
+                    <Link href="/create">Create Event</Link>
                     <Link href="/about">About</Link>
                 </div>
             </section>

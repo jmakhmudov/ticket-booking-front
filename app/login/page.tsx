@@ -11,7 +11,7 @@ const Login = () => {
         <main>
             <Navbar />
 
-            <section className="p-5 space-y-8">
+            <section  className="grid place-items-center w-lg p-5 space-y-8">
                 <h1 className="text-2xl font-bold">Sign In</h1>
                 <LoginForm />
                 <p>

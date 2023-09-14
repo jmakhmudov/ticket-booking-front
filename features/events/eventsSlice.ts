@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "@/store";
 
-interface EventInfo {
+export interface EventInfo {
     id: number;
     name: string;
     topic: string;

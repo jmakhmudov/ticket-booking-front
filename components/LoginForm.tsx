@@ -1,7 +1,7 @@
 "use client"
 
 import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import Cookies from "universal-cookie";
 import { Button } from "@/components/ui/button";
 import {
     Form,
@@ -14,7 +14,8 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import axios from "axios";
 
 const FormSchema = z.object({
     email: z.string().min(2, {
@@ -26,7 +27,8 @@ const FormSchema = z.object({
 })
 
 export default function LoginForm() {
-    const dispatch = useDispatch();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const cookies = new Cookies();
 
     const form = useForm<z.infer<typeof FormSchema>>({
         defaultValues: {
@@ -36,12 +38,29 @@ export default function LoginForm() {
     })
 
     function onSubmit(data: z.infer<typeof FormSchema>) {
-        
+        axios.post("http://127.0.0.1:8000/user/login/", {
+            username: data.email,
+            password: data.password,
+        }, {
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": cookies.get("csrftoken"),
+            },
+            withCredentials: true,
+            
+        })
+            .then((response) => {
+                console.log(response.data);
+                setIsAuthenticated(true);
+            })
+            .catch((error) => {
+                console.error("Error", error);
+            });
     }
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5 flex flex-col justify-center items-center">
                 <FormField
                     control={form.control}
                     name="email"
