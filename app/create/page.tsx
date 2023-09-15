@@ -63,7 +63,7 @@ const Create = () => {
     })
 
     function onSubmit(data: z.infer<typeof FormSchema>) {
-
+        console.log("data sent to the server")
     }
 
     return (
@@ -79,7 +79,7 @@ const Create = () => {
                             <FormItem>
                                 <FormLabel>Name</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Email" {...field} />
+                                    <Input  {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -91,7 +91,7 @@ const Create = () => {
                             <FormItem>
                                 <FormLabel>Topic</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Password" {...field} />
+                                    <Input  {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -104,7 +104,7 @@ const Create = () => {
                             <FormItem>
                                 <FormLabel>Date</FormLabel>
                                 <FormControl>
-                                    <Input type="datetime-local" placeholder="Password" {...field} />
+                                    <Input type="datetime-local"  {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -117,7 +117,7 @@ const Create = () => {
                             <FormItem>
                                 <FormLabel>Place</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Password" {...field} />
+                                    <Input  {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -130,7 +130,7 @@ const Create = () => {
                             <FormItem>
                                 <FormLabel>Number of seats</FormLabel>
                                 <FormControl>
-                                    <Input type="number" placeholder="Password" {...field} />
+                                    <Input type="number"  {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -143,7 +143,7 @@ const Create = () => {
                             <FormItem>
                                 <FormLabel>Ticket price</FormLabel>
                                 <FormControl>
-                                    <Input type="number" placeholder="Password" {...field} />
+                                    <Input type="number"  {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -154,33 +154,33 @@ const Create = () => {
                         name="currency"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Currency</FormLabel>
-                                <section className="flex space-x-5">
+                                <fieldset className="flex space-x-5">
+                                    <FormLabel>Currency</FormLabel>
                                     <div className="flex flex-col justify-center items-center">
                                         <FormControl>
-                                            <Input type="radio" value="USD" className="w-4" />
+                                            <Input name="currency" type="radio" value="USD" className="w-4" />
                                         </FormControl>
                                         <Label>USD</Label>
                                     </div>
                                     <div className="flex flex-col justify-center items-center">
                                         <FormControl>
-                                            <Input type="radio" value="UZS" className="w-4" />
+                                            <Input name="currency" type="radio" value="UZS" className="w-4" />
                                         </FormControl>
                                         <Label>UZS</Label>
                                     </div>
                                     <div className="flex flex-col justify-center items-center">
                                         <FormControl>
-                                            <Input type="radio" value="PLN" className="w-4" />
+                                            <Input name="currency" type="radio" value="PLN" className="w-4" />
                                         </FormControl>
                                         <Label>PLN</Label>
                                     </div>
                                     <div className="flex flex-col justify-center items-center">
                                         <FormControl>
-                                            <Input type="radio" value="RUB" className="w-4" />
+                                            <Input name="currency" type="radio" value="RUB" className="w-4" />
                                         </FormControl>
                                         <Label>RUB</Label>
                                     </div>
-                                </section>
+                                </fieldset>
                                 <FormMessage />
                             </FormItem>
                         )}
@@ -205,7 +205,7 @@ const Create = () => {
                             <FormItem>
                                 <FormLabel>Description</FormLabel>
                                 <FormControl>
-                                    <Input type="text" {...field}/>
+                                    <Input type="text" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>

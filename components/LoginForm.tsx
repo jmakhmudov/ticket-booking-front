@@ -1,12 +1,10 @@
 "use client"
 
 import * as z from "zod";
-import Cookies from "universal-cookie";
 import { Button } from "@/components/ui/button";
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
@@ -28,7 +26,7 @@ const FormSchema = z.object({
 
 export default function LoginForm() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const cookies = new Cookies();
+    const [message, setMessage] = useState("");
 
     const form = useForm<z.infer<typeof FormSchema>>({
         defaultValues: {
@@ -44,13 +42,12 @@ export default function LoginForm() {
         }, {
             headers: {
                 "Content-Type": "application/json",
-                "X-CSRFToken": cookies.get("csrftoken"),
             },
             withCredentials: true,
             
         })
             .then((response) => {
-                console.log(response.data);
+                setMessage(response.data.detail)
                 setIsAuthenticated(true);
             })
             .catch((error) => {
@@ -80,13 +77,14 @@ export default function LoginForm() {
                         <FormItem>
                             <FormLabel>Password</FormLabel>
                             <FormControl>
-                                <Input placeholder="Password" {...field} />
+                                <Input type="password" placeholder="Password" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )} />
                 <Button type="submit">Submit</Button>
             </form>
+            <p>{message}</p>
         </Form>
     );
 }

@@ -8,7 +8,7 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 import { EventInfo } from "@/features/events/eventsSlice";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -26,7 +26,7 @@ const Reserve = ({ event }: ReservationProps) => {
             event: event.id,
             number_of_tickets: seats
         })
-        .then((res) => axios.patch(`http://127.0.0.1:8000/reservations/${res.data.id}/pay/`))
+            .then((res) => axios.patch(`http://127.0.0.1:8000/reservations/${res.data.id}/pay/`))
     }
 
     return (
@@ -57,6 +57,7 @@ const Reserve = ({ event }: ReservationProps) => {
                         />
                     </div>
                 </div>
+                <DialogDescription>Overall: <span className="text-lg font-semibold">{new Intl.NumberFormat().format(seats * Number(event.ticket_price))} {event.currency}</span></DialogDescription>
                 <DialogFooter>
                     <Button type="submit" className="w-80" onClick={handlePayment}>Pay</Button>
                 </DialogFooter>

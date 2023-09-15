@@ -68,7 +68,7 @@ const EventsList = () => {
                     {
                         Number(event.ticket_price) == 0 ?
                             <p>Free</p>
-                            : <p>{event.ticket_price} <span className="text-sm">{event.currency}</span></p>
+                            : <p>{new Intl.NumberFormat().format(Number(event.ticket_price))} <span className="text-sm">{event.currency}</span></p>
                     }
                 </div>
             </section>
