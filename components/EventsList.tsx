@@ -22,7 +22,7 @@ const EventsList = () => {
     const sortedEvents = events.slice().sort((a, b) => a.date.localeCompare(b.date));
 
     const handleClick = (key: number) => {
-        
+        router.push(`/event/${key}`);
     }
 
     useEffect(() => {
@@ -40,7 +40,7 @@ const EventsList = () => {
     ));
 
     const renderedEvents = sortedEvents.map((event) => (
-        <article key={event.id} onClick={() => handleClick(event.id)} className="border-[1px] rounded-sm cursor-pointer">
+        <article key={event.id} onClick={(e) => handleClick(event.id)} className="border-[1px] rounded-sm cursor-pointer">
             <img alt={event.name} className="h-72 w-full object-cover object-center rounded-sm" src={event.thumbnail} />
 
             <section className="p-5">
@@ -64,7 +64,9 @@ const EventsList = () => {
                 <p className="truncate w-10/12 opacity-50">{event.description}</p>
 
                 <div className="text-xl font-bold mt-5 flex justify-between items-center">
-                    <Reserve event={event}/>
+                    <div onClick={(e) => e.stopPropagation()}>
+                        <Reserve event={event} />
+                    </div>
                     {
                         Number(event.ticket_price) == 0 ?
                             <p>Free</p>
