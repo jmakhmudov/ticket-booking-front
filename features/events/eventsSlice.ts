@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "@/store";
+import axios from "axios";
 
 export interface EventInfo {
     id: number;

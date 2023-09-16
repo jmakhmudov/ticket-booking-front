@@ -11,7 +11,7 @@ import { format } from "date-fns";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import EventSkeleton from "./EventSkeleton";
+import EventCardSkeleton from "./EventCardSkeleton";
 import Reserve from "./Reserve";
 import { Badge } from "./ui/badge";
 
@@ -35,7 +35,7 @@ const EventsList = () => {
 
     const renderSkeletons = Array.from({ length: 4 }, (value, index) => (
         <div key={index}>
-            <EventSkeleton />
+            <EventCardSkeleton />
         </div>
     ));
 

@@ -1,6 +1,6 @@
 import { Skeleton } from "./ui/skeleton";
 
-const EventSkeleton = () => {
+const EventCardSkeleton = () => {
 
 
     return (
@@ -14,4 +14,4 @@ const EventSkeleton = () => {
     );
 }
 
-export default EventSkeleton;
+export default EventCardSkeleton;
